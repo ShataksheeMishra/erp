@@ -53,6 +53,9 @@ public class Student {
     @JoinColumn(name = "placement_id", referencedColumnName = "id")
     private Placement placement_id;
 
+    @Column(name = "password", nullable = false)
+    private String password;
+
 
 
 }

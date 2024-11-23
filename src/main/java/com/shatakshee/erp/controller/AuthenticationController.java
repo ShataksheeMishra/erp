@@ -1,5 +1,7 @@
 package com.shatakshee.erp.controller;
 
+import com.shatakshee.erp.dto.LoginRequest;
+import com.shatakshee.erp.service.StudentService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -12,10 +14,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/v1/auth")
 @RequiredArgsConstructor
 public class AuthenticationController {
-    private final CustomerService customerService;
+    private final StudentService studentService;
 
     @PostMapping("/login")
     public ResponseEntity<String> login(@RequestBody @Valid LoginRequest request) {
-        return ResponseEntity.ok(customerService.login(request));
+        return ResponseEntity.ok(studentService.login(request));
     }
 }

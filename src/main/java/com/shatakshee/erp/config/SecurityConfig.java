@@ -36,7 +36,6 @@ public class SecurityConfig {
 
                 .authorizeHttpRequests(auth -> auth
                                 .requestMatchers("/api/v1/auth/login").permitAll() // Allow access to the login endpoint
-                                .requestMatchers(HttpMethod.POST, "/api/v1/customer").permitAll()
                                 .anyRequest().authenticated()
 
                         // Require authentication for other endpoints

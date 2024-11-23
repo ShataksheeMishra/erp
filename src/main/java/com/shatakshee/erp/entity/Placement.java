@@ -28,7 +28,7 @@ public class Placement {
     @Column(name = "intake")
     private int intake;
 
-    @Column(name = "minimune_grade")
+    @Column(name = "minimum_grade")
     private int minimum_grade;
 
 }

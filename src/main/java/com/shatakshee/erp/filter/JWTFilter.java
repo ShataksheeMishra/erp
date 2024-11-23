@@ -1,5 +1,6 @@
 package com.shatakshee.erp.filter;
-
+import com.shatakshee.erp.helper.JWTHelper;
+import com.shatakshee.erp.service.StudentService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -24,7 +25,7 @@ public class JWTFilter extends OncePerRequestFilter {
     private JWTHelper jwtHelper;
 
     @Autowired
-    private CustomerService customerService;
+    private StudentService studentService;
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
@@ -53,7 +54,7 @@ public class JWTFilter extends OncePerRequestFilter {
         // If username is found and SecurityContext is not already set
         if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
             try {
-                var userDetails = customerService.loadUserByUsername(username);  // Load user details
+                var userDetails = studentService.loadUserByUsername(username);  // Load user details
                 logger.debug("User details loaded for username: {}", username);
 
                 if (jwtHelper.validateToken(jwt, userDetails.getUsername())) {
