@@ -16,7 +16,7 @@ import lombok.*;
 
 public class Organisation {
     @Id
-    @Column(name="id")
+    @Column(name="organisation_id")
     private int id;
 
     @Column(name = "name", nullable = false)

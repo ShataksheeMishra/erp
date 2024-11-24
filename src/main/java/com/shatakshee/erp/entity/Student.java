@@ -50,7 +50,7 @@ public class Student {
     private Specialisation specialisation;
 
     @ManyToOne
-    @JoinColumn(name = "placement_id", referencedColumnName = "id")
+    @JoinColumn(name = "placement_id", referencedColumnName = "placement_id")
     private Placement placement_id;
 
     @Column(name = "password", nullable = false)

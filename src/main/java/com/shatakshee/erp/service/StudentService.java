@@ -1,5 +1,6 @@
 package com.shatakshee.erp.service;
 
+import com.shatakshee.erp.dto.EligibleOrganisationDTO;
 import com.shatakshee.erp.dto.LoginRequest;
 import com.shatakshee.erp.entity.Student;
 import com.shatakshee.erp.filter.JWTFilter;
@@ -17,6 +18,7 @@ import static java.lang.String.format;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -45,4 +47,18 @@ public class StudentService implements UserDetailsService  {
                 .orElseThrow(() -> new UsernameNotFoundException("Employee not found with email: " + username));
         return new CustomUserDetails(student); // Wrapping Customer in CustomUserDetails
     }
+    public List<EligibleOrganisationDTO> getAllStudents(String t )
+    {
+        String token = t.substring(7);
+        String email = jwtHelper.extractUsername(token);
+        logger.debug("Loading user details in api call for username: {}", email);
+
+        Student student = studentRepo.findByEmail(email)
+                .orElseThrow(() -> new UsernameNotFoundException("Employee not found with email: " + email));
+
+
+        return studentRepo.findEligibleOrganisations(student.getStudentId());
+    }
 }
+
+

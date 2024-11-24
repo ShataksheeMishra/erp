@@ -64,4 +64,7 @@ public class JWTHelper {
         return (extractedUsername.equals(username) && !isTokenExpired(token));
         //return !isTokenExpired(token);
     }
+//    public String extractEmail(String token) {
+//        return extractClaim(token, claims -> claims.get("email", String.class));
+//    }
 }

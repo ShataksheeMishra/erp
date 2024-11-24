@@ -12,11 +12,11 @@ import lombok.*;
 
 public class Placement {
     @Id
-    @Column(name="id")
-    private int id;
+    @Column(name="placement_id")
+    private int placement_id;
 
     @ManyToOne
-    @JoinColumn(name = "organisation", referencedColumnName = "id")
+    @JoinColumn(name = "organisation", referencedColumnName = "organisation_id")
     private Organisation organisation;
 
     @Column(name = "profile")
