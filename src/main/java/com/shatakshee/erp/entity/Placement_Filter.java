@@ -11,6 +11,7 @@ import lombok.*;
 @Table(name = "Placement_Filter")
 public class Placement_Filter {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="placement_filter_id")
     private int id;
 

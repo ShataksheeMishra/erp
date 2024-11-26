@@ -27,7 +27,7 @@ public class Placement_Student {
 
 
     @Column(name = "cv_application", nullable = false)
-    private String description ;
+    private String cv_application ;
 
     @Column(name = "about")
     private String about ;
