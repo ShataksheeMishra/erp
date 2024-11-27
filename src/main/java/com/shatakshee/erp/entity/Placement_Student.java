@@ -14,6 +14,7 @@ import java.util.Date;
 
 public class Placement_Student {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="id")
     private int id;
 

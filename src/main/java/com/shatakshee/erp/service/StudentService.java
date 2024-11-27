@@ -50,7 +50,7 @@ public class StudentService implements UserDetailsService  {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         logger.debug("Loading user details for username: {}", username);
         Student student = studentRepo.findByEmail(username)
-                .orElseThrow(() -> new UsernameNotFoundException("Employee not found with email: " + username));
+                .orElseThrow(() -> new UsernameNotFoundException("Student not found with email: " + username));
         return new CustomUserDetails(student); // Wrapping Customer in CustomUserDetails
     }
     public List<EligibleOrganisationDTO> getAllStudents(String t )
@@ -60,7 +60,7 @@ public class StudentService implements UserDetailsService  {
         logger.debug("Loading user details in api call for username: {}", email);
 
         Student student = studentRepo.findByEmail(email)
-                .orElseThrow(() -> new UsernameNotFoundException("Employee not found with email: " + email));
+                .orElseThrow(() -> new UsernameNotFoundException("Student not found with email: " + email));
 
 
         return studentRepo.findEligibleOrganisations(student.getStudentId());
@@ -71,12 +71,12 @@ public class StudentService implements UserDetailsService  {
        // logger.debug("Loading user details in api call for username: {}", email);
 
         Student student = studentRepo.findByEmail(email)
-                .orElseThrow(() -> new UsernameNotFoundException("Employee not found with email: " + email));
+                .orElseThrow(() -> new UsernameNotFoundException("Student not found with email: " + email));
 
 
         Placement_Student placement_student = mapper.toEntity(request,student.getStudentId());
         repo.save(placement_student);
-        return "Created";
+        return "Applied";
     }
 
 }

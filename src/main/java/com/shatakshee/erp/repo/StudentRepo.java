@@ -13,7 +13,7 @@ public interface StudentRepo extends JpaRepository<Student, Integer>{
     @Query("""
     SELECT DISTINCT new com.shatakshee.erp.dto.EligibleOrganisationDTO(
         o.name, o.address, p.profile, p.description,
-        p.minimum_grade, sp.name, d.program
+        p.minimum_grade, sp.name, d.program,p.placement_id
     )
     FROM Student s
     JOIN Placement_Filter pf ON s.domain = pf.domain AND s.specialisation = pf.specialisation

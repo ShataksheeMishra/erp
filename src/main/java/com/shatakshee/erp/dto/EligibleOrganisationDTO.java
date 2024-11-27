@@ -16,6 +16,7 @@ public class EligibleOrganisationDTO {
     private int requiredGrade; // Minimum grade required by the organization
     private String requiredSpecialisation; // Specialisation name
     private String requiredDomain; // Domain name
+    private int placement_id;
 
     // Constructor
     public EligibleOrganisationDTO(
@@ -25,7 +26,8 @@ public class EligibleOrganisationDTO {
             String jobDescription,
             int requiredGrade,
             String requiredSpecialisation,
-            String requiredDomain
+            String requiredDomain,
+            int placement_id
     ) {
         this.organisationName = organisationName;
         this.organisationAddress = organisationAddress;
@@ -34,6 +36,7 @@ public class EligibleOrganisationDTO {
         this.requiredGrade = requiredGrade;
         this.requiredSpecialisation = requiredSpecialisation;
         this.requiredDomain = requiredDomain;
+        this.placement_id=placement_id;
     }
 
     // Getters and setters (optional for some frameworks)
